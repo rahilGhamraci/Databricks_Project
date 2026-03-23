@@ -3,4 +3,4 @@ resources:
     earthquake_dashboard:
       display_name: "Earthquake_Dashboard_Prod"
       warehouse_id: 5a0372ec093c536b
-      file_path: ../src/earthquake_dashboard.lvdash.json
+      file_path: ../src/Dashboards/earthquake_dashboard.lvdash.json
