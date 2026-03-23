@@ -14,6 +14,8 @@ variables:
     description: The catalog to use
   schema:
     description: The schema to use
+  spn_id:
+    description: spn id
 
 
     
@@ -30,6 +32,7 @@ targets:
     variables:
       catalog: dev
       schema: dev
+      spn_id: 2acf51c4-5c05-46f4-8e05-24b48a73d4ac
     presets:
       artifacts_dynamic_version: true
   prod:
@@ -41,6 +44,9 @@ targets:
     variables:
       catalog: dev
       schema: prod
+      spn_id: 2acf51c4-5c05-46f4-8e05-24b48a73d4ac
     permissions:
       - user_name: ghamracirahil@gmail.com
+        level: CAN_MANAGE
+      - group_name: earthquake_prod_writer
         level: CAN_MANAGE
