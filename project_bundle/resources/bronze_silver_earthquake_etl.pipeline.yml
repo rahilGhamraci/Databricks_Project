@@ -16,8 +16,8 @@ resources:
       channel: CURRENT
       catalog: ${var.catalog}
       serverless: true
-      run_as:
-        service_principal_name: ${var.spn_id}
+      run_as: 
+        user_name : ghamracirahil@gmail.com
       root_path: ../src/DLT_pipelines/Bronze_Silver
 
 
