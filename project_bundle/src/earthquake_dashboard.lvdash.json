@@ -1,18 +1,17 @@
 {
   "datasets": [
     {
-      "catalog": "dev",
-      "displayName": "Earthquake_detail",
       "name": "12984ff8",
+      "displayName": "Earthquake_detail",
       "queryLines": [
         "select * from 02_silver.earthquake_data_final"
       ],
+      "catalog": "dev",
       "schema": "02_silver"
     },
     {
-      "catalog": "dev",
-      "displayName": "Earthquake_Type",
       "name": "d7876e28",
+      "displayName": "Earthquake_Type",
       "queryLines": [
         "select count(*) as total_magnitude_bucket, magnitude_bucket\r\n",
         "from ( \r\n",
@@ -25,12 +24,12 @@
         "    from 02_silver.earthquake_data_final)\r\n",
         "group by magnitude_bucket"
       ],
+      "catalog": "dev",
       "schema": "02_silver"
     },
     {
-      "catalog": "dev",
-      "displayName": "Earthquake_Country",
       "name": "55dfd271",
+      "displayName": "Earthquake_Country",
       "queryLines": [
         "select count(*) as event_count,\r\n",
         "CASE  \r\n",
@@ -47,36 +46,32 @@
         "from 02_silver.earthquake_data_final)\r\n",
         "group by country "
       ],
+      "catalog": "dev",
       "schema": "02_silver"
     }
   ],
   "pages": [
     {
+      "name": "99745405",
       "displayName": "Earthquake",
       "layout": [
         {
-          "position": {
-            "height": 1,
-            "width": 12,
-            "x": 0,
-            "y": 0
-          },
           "widget": {
+            "name": "efb7df30",
             "multilineTextboxSpec": {
               "lines": [
                 "<span style=\"text-align:center;display:block;\"><span style=\"font-size: 24px;\">**Earthquake Dashboard**</span></span>"
               ]
-            },
-            "name": "efb7df30"
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 1
           }
         },
         {
-          "position": {
-            "height": 6,
-            "width": 12,
-            "x": 0,
-            "y": 7
-          },
           "widget": {
             "name": "f2ceebbe",
             "queries": [
@@ -84,29 +79,29 @@
                 "name": "main_query",
                 "query": {
                   "datasetName": "12984ff8",
-                  "disaggregated": true,
                   "fields": [
                     {
-                      "expression": "`mag`",
-                      "name": "mag"
+                      "name": "mag",
+                      "expression": "`mag`"
                     },
                     {
-                      "expression": "`place`",
-                      "name": "place"
+                      "name": "place",
+                      "expression": "`place`"
                     },
                     {
-                      "expression": "`time`",
-                      "name": "time"
+                      "name": "time",
+                      "expression": "`time`"
                     },
                     {
-                      "expression": "`tsunami`",
-                      "name": "tsunami"
+                      "name": "tsunami",
+                      "expression": "`tsunami`"
                     },
                     {
-                      "expression": "`url`",
-                      "name": "url"
+                      "name": "url",
+                      "expression": "`url`"
                     }
-                  ]
+                  ],
+                  "disaggregated": true
                 }
               }
             ],
@@ -138,15 +133,15 @@
                 "light": "#FF0000"
               }
             }
+          },
+          "position": {
+            "x": 0,
+            "y": 7,
+            "width": 12,
+            "height": 6
           }
         },
         {
-          "position": {
-            "height": 6,
-            "width": 12,
-            "x": 0,
-            "y": 1
-          },
           "widget": {
             "name": "map-view-of-earthquake",
             "queries": [
@@ -154,21 +149,21 @@
                 "name": "main_query",
                 "query": {
                   "datasetName": "12984ff8",
-                  "disaggregated": true,
                   "fields": [
                     {
-                      "expression": "`latitude`",
-                      "name": "latitude"
+                      "name": "latitude",
+                      "expression": "`latitude`"
                     },
                     {
-                      "expression": "`longitude`",
-                      "name": "longitude"
+                      "name": "longitude",
+                      "expression": "`longitude`"
                     },
                     {
-                      "expression": "`tsunami`",
-                      "name": "tsunami"
+                      "name": "tsunami",
+                      "expression": "`tsunami`"
                     }
-                  ]
+                  ],
+                  "disaggregated": true
                 }
               }
             ],
@@ -199,15 +194,15 @@
               "version": 2,
               "widgetType": "symbol-map"
             }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 12,
+            "height": 6
           }
         },
         {
-          "position": {
-            "height": 6,
-            "width": 6,
-            "x": 0,
-            "y": 13
-          },
           "widget": {
             "name": "b40bcea2",
             "queries": [
@@ -215,13 +210,13 @@
                 "name": "main_query",
                 "query": {
                   "datasetName": "d7876e28",
-                  "disaggregated": true,
                   "fields": [
                     {
-                      "expression": "`total_magnitude_bucket`",
-                      "name": "total_magnitude_bucket"
+                      "name": "total_magnitude_bucket",
+                      "expression": "`total_magnitude_bucket`"
                     }
-                  ]
+                  ],
+                  "disaggregated": true
                 }
               }
             ],
@@ -247,15 +242,15 @@
               "version": 3,
               "widgetType": "pie"
             }
+          },
+          "position": {
+            "x": 0,
+            "y": 13,
+            "width": 6,
+            "height": 6
           }
         },
         {
-          "position": {
-            "height": 6,
-            "width": 6,
-            "x": 6,
-            "y": 13
-          },
           "widget": {
             "name": "62fd01ff",
             "queries": [
@@ -263,17 +258,17 @@
                 "name": "main_query",
                 "query": {
                   "datasetName": "55dfd271",
-                  "disaggregated": true,
                   "fields": [
                     {
-                      "expression": "`event_count`",
-                      "name": "event_count"
+                      "name": "event_count",
+                      "expression": "`event_count`"
                     },
                     {
-                      "expression": "`country`",
-                      "name": "country"
+                      "name": "country",
+                      "expression": "`country`"
                     }
-                  ]
+                  ],
+                  "disaggregated": true
                 }
               }
             ],
@@ -296,18 +291,23 @@
               "version": 3,
               "widgetType": "pie"
             }
+          },
+          "position": {
+            "x": 6,
+            "y": 13,
+            "width": 6,
+            "height": 6
           }
         }
       ],
-      "layoutVersion": "GRID_V1",
-      "name": "99745405",
-      "pageType": "PAGE_TYPE_CANVAS"
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
     }
   ],
   "uiSettings": {
-    "applyModeEnabled": false,
     "theme": {
       "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
-    }
+    },
+    "applyModeEnabled": false
   }
 }
